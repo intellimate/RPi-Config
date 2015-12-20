@@ -1,0 +1,18 @@
+INSTRUCTIONS FOR INSTALLING IZOU ON YOUR RASPBERRY PI
+
+These scripts contained in this folder set up your raspberry pi to run Izou. That
+means it removes certain folders and creates new ones; those where izou will run from.
+Further more it creates a daemon that runs izou and registers it with the start up 
+services of the raspberry pi. That means Izou will by default always run and be started as soon
+as the raspberry pi boots up. Here are the steps to achieve all this:
+
+1. Run the SETUP.sh script from the home directory, with sudo rights
+
+2. Move the INSTALL.sh script into /izou/config (created by the SETUP.sh script)
+
+3. Move izou.jar into the /izou/izou directory (created by the SETUP.sh script)
+
+4. Run INSTALL.sh with sudo rights
+
+Now you will have izou running in the background all the time and being started up
+when the raspberry pi starts up.
