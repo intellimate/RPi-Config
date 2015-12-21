@@ -1,0 +1,15 @@
+INSTRUCTIONS FOR SETTING UP AUTOMATIC WIFI RECONNECT ON DROP
+
+The RUN.sh script creates a network monitor that runs in the background as soon
+as the raspberry-pi is booted up. It checks every 60 sec if the internet connection
+is still present, and if not it tries to reconnect. That way the raspberry-pi
+can automatically reconnect to wifi if it looses the connection. Here are the
+instructions to install the script correctly:
+
+1. Run the script RUN.sh (from anywhere)
+
+2. Open the /etc/rc.local file
+
+3. Add "/usr/local/bin/network-monitor.sh &" to the end of the rc.local file
+right above the "return 0" (Make sure the return 0 is the last line of the file
+- important).
