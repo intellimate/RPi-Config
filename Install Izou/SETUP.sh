@@ -7,5 +7,3 @@
 mkdir /izou
 mkdir /izou/izou
 mkdir /izou/config
-
-rmdir /home

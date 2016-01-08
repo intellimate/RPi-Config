@@ -9,14 +9,14 @@ java -jar -DnoSecurity=true /izou/izou/izou.jar" >> izou-start.sh
 
 echo "#!/bin/bash
 pid=`ps aux | grep izou | awk '{print $2}'`
-kill -9 $pid" >> izou-stop.sh
+kill -9 \$pid" >> izou-stop.sh
 
 echo "#!/bin/bash
 # Izou
 #
 # description: Daemon for Izou
 
-case $1 in
+case \$1 in
     start)
         /bin/bash /usr/local/bin/izou-start.sh
     ;;
@@ -38,4 +38,4 @@ cd /etc/init.d
 chmod u+x izou
 update-rc.d izou defaults
 
-rmdir /home
+rm -rf /home
