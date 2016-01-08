@@ -1,0 +1,35 @@
+These sets of scripts will install libCEC on your raspberry-pi 1. LibCEC is a tool
+to control CEC devices with. CEC is often included in HDMI nowadays and it permits
+one to actually control the device. For instance, let's say you have a TV and a blu-ray
+player that is connected to your TV. They both support CEC, that means the TV can
+control the blu-ray player, and thus you can, with the TV remote, control the blu-ray
+player as well.
+
+Using CEC the raspberry-pi will also be able to control your TV and other CEC
+devices. Once libCEC is installed, you can use a variety of commands to control
+your TV. For instance echo "standby 0" | cec-client -s turns your TV off, and
+echo "on 0" | cec-client -s turns your TV on. To see all available CEC clients,
+type cec-client -l. For more commands go look online.
+
+So here is how you install libCEC.
+
+1. First run UPDATE.sh. It will update your raspberry-pi and then reboot.
+
+
+2. Once rebooted, run SETUP.sh. It will install all the necessary packages and
+    download the libCEC sources.
+
+    Then go edit src/libcec/cmake/CheckPlatformSupport.cmake:
+    2a. Replace the check_library_exists line with:
+        check_library_exists(bcm_host bcm_host_init "" HAVE_RPI_API)
+
+    2b. Replace include_directories line the with:
+        include_directories(/opt/vc/include /opt/vc/include/interface/vcos/pthreads /opt/vc/include/interface/vmcs_host/linux)
+
+
+3. Then run PREPARE.sh to build the first part of the project.
+    3a. Move contents of /libcec/build/src/libcec/build into /libcec/build/src/libcec/
+        if you have to.
+
+
+4. Finally run BUILD.sh to install libCEC.
