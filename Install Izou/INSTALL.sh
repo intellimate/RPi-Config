@@ -8,7 +8,7 @@ echo "#!/bin/bash
 java -jar -DnoSecurity=true /izou/izou/izou.jar" >> izou-start.sh
 
 echo "#!/bin/bash
-pid=`ps aux | grep izou | awk '{print $2}'`
+pid=\`ps aux | grep izou | awk '{print \$2}'\`
 kill -9 \$pid" >> izou-stop.sh
 
 echo "#!/bin/bash
@@ -39,3 +39,4 @@ chmod u+x izou
 update-rc.d izou defaults
 
 rm -rf /home
+chmod -R 777 /izou
